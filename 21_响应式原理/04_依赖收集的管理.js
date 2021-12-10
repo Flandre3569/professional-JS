@@ -17,8 +17,11 @@ class Depend {
 
 // 封装一个响应式的函数
 const depend = new Depend();
+let activeReactiveFn = null;
 function watchFn(fn) {
-  depend.addDepend(fn);
+  activeReactiveFn = fn;
+  fn();
+  activeReactiveFn = null;
 }
 
 const obj = {
@@ -48,6 +51,10 @@ function getDepend(target, key) {
 // 监听对象属性变化
 const objProxy = new Proxy(obj, {
   get: function (target, key, receiver) {
+    // 根据target和key获取正确的depend
+    const depend = getDepend(target, key);
+    // 给depend对象中添加响应函数
+    depend.addDepend(activeReactiveFn);
     return Reflect.get(target, key, receiver);
   },
   set: function (target, key, newValue, receiver) {
