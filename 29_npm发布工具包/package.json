@@ -1,11 +1,12 @@
 {
   "name": "ltjson",
-  "version": "1.0.0",
-  "description": "localStorage和json格式转换工具",
+  "version": "1.0.2",
+  "description": "localStorage存储和json格式转换工具",
   "main": "localCache.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Coisini_mx",
-  "license": "MIT"
+  "license": "MIT",
+  "keywords": ["json", "localStorage", "数据格式转换"]
 }
