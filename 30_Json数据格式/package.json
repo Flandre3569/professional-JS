@@ -1,0 +1,15 @@
+{
+  "name": "jsondemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "02_json的序列化需要.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ltjson": "^1.1.3"
+  },
+  "type": "module"
+}
