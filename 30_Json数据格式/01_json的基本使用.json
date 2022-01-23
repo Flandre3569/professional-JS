@@ -1,0 +1,8 @@
+{
+  "name": "mx",
+  "age": 18,
+  "friend": {
+    "name": "zhangsan",
+    "age": 19
+  }
+}
