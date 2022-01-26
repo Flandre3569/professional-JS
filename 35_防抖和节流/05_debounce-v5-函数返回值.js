@@ -1,3 +1,4 @@
+// 可以有返回值的防抖
 function debounce(fn, delay, immediate = false, resultCallback) {
   // 1.定义一个定时器, 保存上一次的定时器
   let timer = null
