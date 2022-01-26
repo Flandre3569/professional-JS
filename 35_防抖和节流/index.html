@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text">
+  <button id="btn">取消</button>
+
+  <script crossorigin="anonymous" integrity="sha512-ZuOjyqq409+q6uc49UiBF3fTeyRyP8Qs0Jf/7FxH5LfhqBMzrR5cwbpDA4BgzSo884w6q/+oNdIeHenOqhISGw==" src="https://lib.baomitu.com/underscore.js/1.13.1/underscore-umd-min.js"></script>
+  <script src="./05_debounce-v5-函数返回值.js"></script>
+  <script>
+    const inputEl = document.querySelector("input");
+    let counter = 0;
+    const inputChange = function (event) {
+      console.log(`发生了第${++counter}网络请求`, this, event);
+    }
+    const btn = document.querySelector("#btn");
+    btn.onclick = function() {
+      debounceChange.cancel();
+    }
+    // 防抖函数的使用
+    // inputEl.oninput = _.debounce(inputChange, 2000)
+
+    // 节流函数的使用
+    // inputEl.oninput = _.throttle(inputChange, 2000);
+
+    // 手写防抖函数
+    const debounceChange = debounce(inputChange, 2000, true)
+    inputEl.oninput = debounceChange;
+  </script>
+</body>
+</html>
