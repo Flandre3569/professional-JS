@@ -5,5 +5,5 @@ JavaScript高级学习
 
 ![Algorithms](https://github.com/Flandre3569/professional-JS/blob/main/Algorithms.jpg)
 
-![Html-Css](http://mingxuan3569.oss-cn-beijing.aliyuncs.com/image/Html_Css.jpg)
+![Html-Css](https://github.com/Flandre3569/professional-JS/blob/main/Html_Css.jpg)
 
