@@ -7,22 +7,49 @@
   <title>Document</title>
 </head>
 <body>
+
   <input type="text">
-
-  <script crossorigin="anonymous" integrity="sha512-ZuOjyqq409+q6uc49UiBF3fTeyRyP8Qs0Jf/7FxH5LfhqBMzrR5cwbpDA4BgzSo884w6q/+oNdIeHenOqhISGw==" src="https://lib.baomitu.com/underscore.js/1.13.1/underscore-umd-min.js"></script>
-  <script src="./06_throttle-v1-基本实现.js"></script>
+  <button id="cancel">取消</button>
+  
+  <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.1/underscore-umd-min.js"></script>
+  <!-- <script src="./06_throttle-v1-基本实现.js"></script> -->
+  <!-- <script src="./07_throttle-v1-leading实现.js"></script> -->
+  <!-- <script src="./08_throttle-v3-traling实现.js"></script> -->
+  <!-- <script src="./09_throttle-v4-this-参数.js"></script> -->
+  <!-- <script src="./10_throttle-v4-取消功能.js"></script> -->
+  <script src="./11_throttle-v6-函数返回值.js"></script>
+  
   <script>
-    const inputEl = document.querySelector("input");
-    let counter = 0;
-    const inputChange = function (event) {
-      console.log(`发生了第${++counter}网络请求`, this, event);
+    const inputEl = document.querySelector("input")
+    let counter = 0
+    const inputChange = function(event) {
+      console.log(`发送了第${++counter}次网络请求`, this, event)
+
+      return 11111111111
     }
-    const btn = document.querySelector("#btn");
 
-    // 节流函数的使用
-    // inputEl.oninput = _.throttle(inputChange, 2000);
-    inputEl.oninput = throttle(inputChange, 2000);
+    // 节流处理
+    // inputEl.oninput = _.throttle(inputChange, 2000)
+    const _throttle = throttle(inputChange, 3000, { 
+      leading: false, 
+      trailing: true,
+      resultCallback: function(res) {
+        console.log("resultCallback:", res)
+      }
+     })
+    const tempCallback = (...args) => {
+      _throttle.apply(inputEl, args).then(res => {
+        console.log("Promise:", res)
+      })
+    }
+    inputEl.oninput = tempCallback
 
+    // 取消功能
+    const cancelBtn = document.querySelector("#cancel")
+    cancelBtn.onclick = function() {
+      _throttle.cancel()
+    }
   </script>
+
 </body>
 </html>
