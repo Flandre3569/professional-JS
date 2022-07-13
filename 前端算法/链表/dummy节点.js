@@ -8,6 +8,7 @@ function ListNode(val) {
   this.next = null;
 }
 
+// 删除链表中所有重复的元素，包括"本体"。
 const deleteDuplicates = (head) => {
   // 极端情况，只有一个节点或者没有节点
   if (!head || !head.next) {
