@@ -28,3 +28,8 @@ console.log(arr3); // 1,2,3,4,5
 let arr4 = ["t", "e", "s", "t"];
 console.log(arr4.slice(1, 3));
 console.log(arr4.slice(0, 2));
+
+// 寻找数组元素
+console.log(arr.includes("I")); // 返回true或者false
+console.log(arr.indexOf("I")); // 返回索引位置，如果不存在返回 -1
+console.log(arr.lastIndexOf("I")); // 从右往左寻找，其他机制和indexOf一致
